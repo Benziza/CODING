@@ -6,7 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  segmentValue = '1';
 
   constructor() {}
 
+  ngOnInit() {}
+
+  segmentChanged(event) {
+    console.log(event);
+    this.segmentValue = event.detail.value;
+  }
 }
