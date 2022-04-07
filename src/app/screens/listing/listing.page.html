@@ -1,0 +1,28 @@
+<ion-content>
+  <div class="header">
+    <h1>Menu</h1>
+  </div>
+
+  <!--Searchbar start-->
+  <app-searchbar></app-searchbar>
+  <!--Searchbar end-->
+  <!--Category start-->
+  <div class="categories">
+    <app-category-item
+      *ngFor="let item of categories"
+      [item]="item"
+    ></app-category-item>
+  </div>
+  <!--Category end-->
+
+  <!-- Products start -->
+  <h1 class="list-header">Popular</h1>
+  <div class="course-list">
+    <app-course-card
+      *ngFor="let course of courses"
+      [item]="course"
+      (clicked)="goToDetailPage(course.id)"
+    ></app-course-card>
+  </div>
+  <!-- Products end -->
+</ion-content>

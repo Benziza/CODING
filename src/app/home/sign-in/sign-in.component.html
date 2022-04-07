@@ -3,6 +3,7 @@
     <ion-item lines="full">
       <ion-input
         formControlName="email"
+        #email
         type="text"
         placeholder="Enter email or username"
       ></ion-input>
@@ -27,6 +28,7 @@
       </ion-icon>
       <ion-input
         formControlName="password"
+        #password
         [type]="type ? 'password' : 'text'"
         placeholder="Enter password"
       ></ion-input>
@@ -62,7 +64,7 @@
     expand="block"
     shape="round"
     color="primary"
-    (click)="onSubmit()"
+    (click)="onSubmit(email, password)"
   >
     <ion-text>Log In</ion-text>
   </ion-button>

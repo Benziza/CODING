@@ -1,0 +1,36 @@
+<ion-content>
+  <div class="header">
+    <ion-buttons>
+      <ion-button routerLink="/menu/listing">
+        <ion-icon slot="icon-only" color="light" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </div>
+  <!-- Course detail card -->
+  <div class="card">
+    <div class="image">
+      <ion-img [src]="course.image"></ion-img>
+    </div>
+    <div class="card-content">
+      <div class="card-title">
+        <h1 class="ion-no-margin">{{course.title}}</h1>
+        <p class="ion-no-margin"><sup>$</sup>{{course.price|number:'1.2'}}</p>
+      </div>
+    </div>
+    <div class="rates">
+      <app-badge icon="time" text="{{course.duration}}jours"></app-badge>
+    </div>
+
+    <div class="about">
+      <h1>Prerequisite</h1>
+      <p>{{course.prerequisite}}</p>
+    </div>
+
+    <div class="about">
+      <h1>About</h1>
+      <p>{{course.description}}</p>
+    </div>
+
+    <app-button (click)="addItemToCart()">Add to Cart</app-button>
+  </div>
+</ion-content>

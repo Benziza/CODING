@@ -2,25 +2,9 @@
   <div class="ion-margin-vertical">
     <ion-item lines="full">
       <ion-input
-        formControlName="username"
-        type="text"
-        placeholder="Enter username"
-      ></ion-input>
-    </ion-item>
-    <ion-text
-      color="danger"
-      *ngIf="!form.get('username').valid && form.get('username').touched"
-    >
-      <ion-text class="error" *ngIf="form.get('username').hasError('required')">
-        * Please enter the username
-      </ion-text>
-    </ion-text>
-  </div>
-  <div class="ion-margin-vertical">
-    <ion-item lines="full">
-      <ion-input
         formControlName="email"
         type="text"
+        #email
         placeholder="Enter email"
       ></ion-input>
     </ion-item>
@@ -54,6 +38,7 @@
       </ion-icon>
       <ion-input
         formControlName="password"
+        #password
         [type]="type ? 'password' : 'text'"
         placeholder="Enter password"
       ></ion-input>
@@ -84,7 +69,7 @@
     expand="block"
     shape="round"
     color="primary"
-    (click)="onSubmit()"
+    (click)="onSubmit(email, password)"
   >
     <ion-text>Sign Up</ion-text>
   </ion-button>
