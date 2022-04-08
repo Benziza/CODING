@@ -6,4 +6,5 @@ export interface Course {
   description?: string;
   prerequisite: string;
   duration: string;
+  type: string;
 }

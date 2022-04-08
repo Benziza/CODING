@@ -13,12 +13,15 @@ export class CartService {
   getCart() {
     return this.item$.asObservable();
   }
+
   addToCart(newItem: CartItem) {
     this.item$.next([...this.item$.getValue(), newItem]);
   }
+
   removeItem(id: number) {
     this.item$.next(this.item$.getValue().filter((item) => item.id != id));
   }
+
   getTotalAmount() {
     return this.item$.pipe(
       map((items) => {

@@ -9,13 +9,5 @@ import { CartItem } from 'src/app/models/cart-item.module';
 export class CartItemComponent {
   @Input() item: CartItem;
 
-  constructor() {
-    this.item = {
-      id: 1,
-      name: 'HTML CSS',
-      price: 12,
-      image: '../../assets/images/HtmlandCss.png',
-      quantity: 1,
-    };
-  }
+  constructor() {}
 }

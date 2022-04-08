@@ -14,12 +14,12 @@
   </ion-list>
 
   <!--Empty Cart-->
-  <div class="empty-cart" *ngIf="!(cartItems$|async).length">
+  <div class="empty-cart" *ngIf="!(cartItems$|async).length ">
     <ion-icon name="cart"></ion-icon>
     <p>Your cart is empty</p>
   </div>
   <!-- Checkout Button -->
-  <app-button *ngIf="(cartItems$|async).length">
+  <app-button *ngIf="(cartItems$|async).length" (click)="add()">
     Total:<span><sup>$</sup>{{totalAmount$|async|number:'1.2'}}</span>
   </app-button>
 </ion-content>

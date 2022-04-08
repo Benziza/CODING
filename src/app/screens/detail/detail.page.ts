@@ -13,7 +13,7 @@ import { CourseService } from 'src/app/services/course.service';
 })
 export class DetailPage implements OnInit {
   id: number;
-  course: Course;
+  course!: Course;
 
   constructor(
     private activateRouter: ActivatedRoute,

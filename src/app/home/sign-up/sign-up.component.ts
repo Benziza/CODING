@@ -25,7 +25,6 @@ export class SignUpComponent implements OnInit {
     this.authService
       .RegisterUser(email.value, password.value)
       .then((res) => {
-        // Do something here
         this.authService.SendVerificationMail();
         this.router.navigate(['menu/listing']);
       })
@@ -38,7 +37,7 @@ export class SignUpComponent implements OnInit {
     this.form = new FormGroup({
       email: new FormControl(null, {
         validators: [Validators.required, Validators.email],
-      }), // added email validator also
+      }),
       password: new FormControl(null, {
         validators: [Validators.required, Validators.minLength(8)],
       }),
