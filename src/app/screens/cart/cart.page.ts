@@ -58,13 +58,13 @@ export class CartPage implements OnInit {
 
   async add() {
     const alert = await this.alertCtrl.create({
-      header: 'Remove',
+      header: 'Enroll',
       message: 'Are you sure you want to enroll?',
       buttons: [
         {
           text: 'Yes',
           handler: () =>
-            this.store.collection('users').add({
+            this.store.collection('purchases').add({
               email: this.userLoggedIn,
               course: 'HTML+CSS',
             }),
