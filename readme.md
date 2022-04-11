@@ -41,9 +41,7 @@ This application helps you learn programming languages and programs for the web,
 - badge
 - button
 - cart-item
-- category-item
 - course-card
-- searchbar
 
 ## Services
 
