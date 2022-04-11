@@ -14,11 +14,6 @@ ion-content {
       margin: 0;
     }
   }
-  .categories {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 1rem;
-  }
   .list-header {
     font-weight: 700;
     color: #515151;

@@ -3,20 +3,7 @@
     <h1>Menu</h1>
   </div>
 
-  <!--Searchbar start-->
-  <app-searchbar></app-searchbar>
-  <!--Searchbar end-->
-  <!--Category start-->
-  <div class="categories">
-    <app-category-item
-      *ngFor="let item of categories"
-      [item]="item"
-    ></app-category-item>
-  </div>
-  <!--Category end-->
-
-  <!-- Products start -->
-  <h1 class="list-header">Popular</h1>
+  <!-- Course start -->
   <div class="course-list" *ngIf="courses!=null">
     <app-course-card
       *ngFor="let course of courses"
@@ -24,5 +11,5 @@
       (clicked)="goToDetailPage(course.id)"
     ></app-course-card>
   </div>
-  <!-- Products end -->
+  <!-- Course end -->
 </ion-content>
