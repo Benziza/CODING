@@ -13,7 +13,6 @@ export class HomePage {
   ngOnInit() {}
 
   segmentChanged(event) {
-    console.log(event);
     this.segmentValue = event.detail.value;
   }
 }

@@ -13,6 +13,7 @@ This application helps you learn programming languages and programs for the web,
   - [Getting Started](#getting-started)
   - [Components](#components)
   - [Services](#services)
+  - [Firebase](#firebase)
   - [Elements](#elements)
       - [Sign In](#sign-in)
       - [Sign Up](#sign-up)
@@ -22,10 +23,6 @@ This application helps you learn programming languages and programs for the web,
       - [Card item](#card-item)
   - [Demo](#demo)
   - [Version](#version)
-  <!-- - [Deploying](#deploying)
-  - [Progressive Web App](#progressive-web-app)
-  - [Android](#android)
-  - [iOS](#ios) -->
 
 ## Getting Started
 
@@ -50,6 +47,14 @@ This application helps you learn programming languages and programs for the web,
 - cart.service
 - course.service
 - formation-service
+
+## Firebase
+
+![img](./screenshot/AuthenticationFirebase.png)
+
+![img](./screenshot/courseFirebase.png)
+
+![img](./screenshot/purchasesFirebase.png)
 
 ## Elements
 
@@ -93,4 +98,15 @@ It shows you your purchases and the total price, where you have the right to del
 
 ## Demo
 
+![](./screenshot/Demo.gif)
+
 ## Version
+
+This project use the following technologies.
+
+| Technologie Name | Version |
+| :--------------- | :-----: |
+| ionic            | 6.18.2  |
+| angular          | 13.1.3  |
+| npm              | 16.13.2 |
+| firebase         | 10.4.2  |

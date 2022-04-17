@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Subject } from 'rxjs';
 import { Course } from '../models/course.module';
 import { AuthenticationService } from './authentication-service';
 import { FormationService } from './formation-service';
@@ -9,6 +10,8 @@ import { FormationService } from './formation-service';
 })
 export class CourseService {
   courses: Course[] = [];
+  selectedCourse: Subject<Course> = new Subject<Course>();
+  coursChanged$ = this.selectedCourse.asObservable();
 
   constructor(
     public formationService: FormationService,
@@ -17,11 +20,12 @@ export class CourseService {
   ) {
     this.formationService.getFormationList().subscribe((res) => {
       this.courses = res;
-      console.log(res);
     });
   }
 
-  getCourse(id: number): Course {
-    return this.courses.find((course) => course.id === id);
+  getCourse(id: number): void {
+    this.formationService.getFormationList().subscribe((res) => {
+      this.selectedCourse.next(res.find((course) => course.id == id));
+    });
   }
 }

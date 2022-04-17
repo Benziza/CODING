@@ -56,6 +56,5 @@ export class SignInComponent implements OnInit {
       return;
     }
     this.logIn(email, password);
-    console.log(this.form.value);
   }
 }

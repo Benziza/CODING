@@ -1,0 +1,13 @@
+==> sign in
+==>log out
+==>sign in 
+==>show la liste de cours dans  firebase
+==>choisir un cours + ajouter dans la cart
+==>supprimer un autre cours
+==>ajouter 2 cours
+==>buy this 2 course
+==>afficher les cours acheter dans firebase 
+==>log out
+==>sign up
+==>gmail
+==>entrer dans app ==> fin

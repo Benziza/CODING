@@ -1,4 +1,5 @@
-import { Component, IterableDiffers, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { async } from '@angular/core/testing';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AlertController } from '@ionic/angular';
 import { Observable } from 'rxjs';
@@ -14,6 +15,7 @@ import { CartService } from 'src/app/services/cart.service';
 export class CartPage implements OnInit {
   cartItems$: Observable<CartItem[]>;
   totalAmount$: Observable<number>;
+  totalName$: Observable<string>;
   isLoggedIn: boolean = false;
   userLoggedIn: string;
   titleFireBase: String;
@@ -25,7 +27,7 @@ export class CartPage implements OnInit {
     private store: AngularFirestore
   ) {}
 
-  ngOnInit() {
+  async ngOnInit() {
     this.authService.getAuth().subscribe((auth) => {
       if (auth) {
         this.userLoggedIn = auth.email;
@@ -37,6 +39,7 @@ export class CartPage implements OnInit {
 
     this.cartItems$ = this.cartService.getCart();
     this.totalAmount$ = this.cartService.getTotalAmount();
+    this.totalName$ = this.cartService.getNames();
   }
 
   async removeFromCart(item: CartItem) {
@@ -63,10 +66,10 @@ export class CartPage implements OnInit {
       buttons: [
         {
           text: 'Yes',
-          handler: () =>
+          handler: async () =>
             this.store.collection('purchases').add({
               email: this.userLoggedIn,
-              course: 'HTML+CSS',
+              course: this.totalName$ || null,
             }),
         },
         {

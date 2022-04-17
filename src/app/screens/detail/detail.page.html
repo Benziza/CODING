@@ -1,4 +1,4 @@
-<ion-content *ngIf="course.image!=null">
+<ion-content>
   <div class="header">
     <ion-buttons>
       <ion-button routerLink="/menu/listing">
@@ -7,7 +7,7 @@
     </ion-buttons>
   </div>
   <!-- Course detail card -->
-  <div class="card">
+  <div class="card" *ngIf="course !=null">
     <div class="image">
       <ion-img [src]="course.image"></ion-img>
     </div>

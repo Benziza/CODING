@@ -22,10 +22,13 @@ export class DetailPage implements OnInit {
     private toastCtrl: ToastController
   ) {
     this.id = +this.activateRouter.snapshot.paramMap.get('id');
+    this.courseService.coursChanged$.subscribe(
+      (course) => (this.course = course)
+    );
   }
 
   ngOnInit() {
-    this.course = this.courseService.getCourse(this.id);
+    this.courseService.getCourse(this.id);
   }
 
   addItemToCart() {
@@ -49,5 +52,9 @@ export class DetailPage implements OnInit {
       position: 'top',
     });
     toast.present();
+  }
+
+  logCours(): void {
+    console.log(this.course);
   }
 }

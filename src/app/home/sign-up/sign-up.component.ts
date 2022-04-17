@@ -54,6 +54,5 @@ export class SignUpComponent implements OnInit {
       return;
     }
     this.signUp(email, password);
-    console.log(this.form.value);
   }
 }

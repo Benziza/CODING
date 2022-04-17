@@ -14,6 +14,19 @@ export class CartService {
     return this.item$.asObservable();
   }
 
+  getNames() {
+    return this.item$.pipe(
+      map((items) => {
+        let name = '';
+        items.forEach((item) => {
+          name += item.name + ' and ';
+        });
+
+        return name;
+      })
+    );
+  }
+
   addToCart(newItem: CartItem) {
     this.item$.next([...this.item$.getValue(), newItem]);
   }
