@@ -19,7 +19,7 @@ export class CartService {
       map((items) => {
         let name = '';
         items.forEach((item) => {
-          name += item.name + ' and ';
+          name += item.name + ' ';
         });
 
         return name;

@@ -23,7 +23,6 @@ export class ListingPage implements OnInit {
     this.formationService.getFormationList().subscribe((res) => {
       this.courses = res;
       this.cd.detectChanges();
-      console.log(res);
     });
   }
 

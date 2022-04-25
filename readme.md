@@ -13,6 +13,7 @@ This application helps you learn programming languages and programs for the web,
   - [Getting Started](#getting-started)
   - [Components](#components)
   - [Services](#services)
+  - [Project Map](#project-map)
   - [Firebase](#firebase)
   - [Elements](#elements)
       - [Sign In](#sign-in)
@@ -47,6 +48,43 @@ This application helps you learn programming languages and programs for the web,
 - cart.service
 - course.service
 - formation-service
+
+## Project Map
+
+The following figure is the map for this project.
+
+```
+- src/
+  - app/                      … This folder has all your application parts
+    -components/              … Contains the components that will be used in the other components
+        + badge/                     … Contains the badge component that will contain the duration of our training
+        + button/                    … Contains the button component that will used in almost in all the project
+        + cart-item/                 … Contains the cart-item component that will used in cart component
+        + course-card/               … Contains the course-card component that will used in listing component
+    -home/                    … Contains the component that will be used to use the application,by sign-in or sign-up
+        + sign-in/                   … Contains the sign-in component that will contain the sign-in forms
+        + sign-up/                   … Contains the sign-up component that will contain the sign-up forms
+    +menu/                    … The parent component of screens,we use tab to switch between components
+    -models/                  … this folder contain the model of our objects (cart-item+course+user)
+        - cart-item.module.ts       … contain the model of cart-item
+        - course.module.ts          … contain the model of course
+        - user.ts                   … contain the model of user
+    -screens/
+        + cart                … Contain component of cart that contain what the user buy
+        + detail              … Contain component of detail of a course
+        + listing             … Contain component of all course in firebase
+    -services/
+        - auth-client.service.ts              … Contain the function getAuth()
+        - authentication-service.ts           … Contain all function of sign-in and sign-up (send verificatin to email)
+        - cart.service.ts                     … Contain all function related to buy a course like : total amount + remove a course + add to cart + getCart + getName to add in firebase
+        - course.service.ts                   … Contain getCourse() to get detail of a course
+        - formation-service.ts                … Contain getFormationList() to get all formation list
++ assets/                                       This folder is added STATIC fixed folders, such as images, and other fonts
+- environments/                               … Some settings are added, such as database settings (in our situtation firebase)
+    -environment.prod.ts                      … In the development phase
+    -environment.ts                           … In the production phase
+-theme/
+```
 
 ## Firebase
 

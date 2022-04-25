@@ -1,5 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { async } from '@angular/core/testing';
+import {
+  Component,
+  DoCheck,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AlertController } from '@ionic/angular';
 import { Observable } from 'rxjs';
@@ -15,10 +21,11 @@ import { CartService } from 'src/app/services/cart.service';
 export class CartPage implements OnInit {
   cartItems$: Observable<CartItem[]>;
   totalAmount$: Observable<number>;
-  totalName$: Observable<string>;
   isLoggedIn: boolean = false;
   userLoggedIn: string;
   titleFireBase: String;
+  totalName: String;
+  isClicked: boolean = false;
 
   constructor(
     private authService: AuthClientService,
@@ -36,10 +43,13 @@ export class CartPage implements OnInit {
         this.isLoggedIn = false;
       }
     });
-
     this.cartItems$ = this.cartService.getCart();
+    if (this.isClicked == true) {
+      this.cartItems$ = new Observable<CartItem[]>();
+      this.isClicked = false;
+    }
     this.totalAmount$ = this.cartService.getTotalAmount();
-    this.totalName$ = this.cartService.getNames();
+    this.cartService.getNames().subscribe((value) => (this.totalName = value));
   }
 
   async removeFromCart(item: CartItem) {
@@ -69,7 +79,7 @@ export class CartPage implements OnInit {
           handler: async () =>
             this.store.collection('purchases').add({
               email: this.userLoggedIn,
-              course: this.totalName$ || null,
+              course: this.totalName || null,
             }),
         },
         {
