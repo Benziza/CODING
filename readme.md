@@ -136,6 +136,10 @@ It shows you your purchases and the total price, where you have the right to del
 
 ## Demo
 
+
+https://user-images.githubusercontent.com/74437449/165187400-8766872f-7f19-479c-a8c8-61feca83cedb.mp4
+
+
 ## Version
 
 This project use the following technologies.
