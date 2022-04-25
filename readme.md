@@ -136,8 +136,6 @@ It shows you your purchases and the total price, where you have the right to del
 
 ## Demo
 
-![](./screenshot/demo.webm)
-
 ## Version
 
 This project use the following technologies.
