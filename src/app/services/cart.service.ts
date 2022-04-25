@@ -18,11 +18,13 @@ export class CartService {
     return this.item$.pipe(
       map((items) => {
         let name = '';
+        let trainings = [];
         items.forEach((item) => {
           name += item.name + ' ';
+          trainings.push(item);
         });
 
-        return name;
+        return trainings;
       })
     );
   }
@@ -46,5 +48,9 @@ export class CartService {
         return total;
       })
     );
+  }
+
+  clearCart(): void {
+    this.item$.next([]);
   }
 }

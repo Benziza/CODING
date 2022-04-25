@@ -26,6 +26,7 @@ export class CartPage implements OnInit {
   titleFireBase: String;
   totalName: String;
   isClicked: boolean = false;
+  items: any[] = [];
 
   constructor(
     private authService: AuthClientService,
@@ -49,7 +50,7 @@ export class CartPage implements OnInit {
       this.isClicked = false;
     }
     this.totalAmount$ = this.cartService.getTotalAmount();
-    this.cartService.getNames().subscribe((value) => (this.totalName = value));
+    this.cartService.getNames().subscribe((value) => (this.items = value));
   }
 
   async removeFromCart(item: CartItem) {
@@ -76,11 +77,13 @@ export class CartPage implements OnInit {
       buttons: [
         {
           text: 'Yes',
-          handler: async () =>
+          handler: async () => {
             this.store.collection('purchases').add({
               email: this.userLoggedIn,
-              course: this.totalName || null,
-            }),
+              course: this.items || null,
+            });
+            this.cartService.clearCart();
+          },
         },
         {
           text: 'No',
